@@ -1,0 +1,15 @@
+<h1 class="text-center">Post a recipe for <%= @cocktail.name %></h1>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-offset-3">
+
+    <%= simple_form_for [@cocktail, @dose] do |f| %>
+      <%= f.association :ingredient, placeholder: "what ingredients" %>
+      <%= f.input :description, placeholder: "how much of it" %>
+      <%= f.submit "Post your recipe", class: "btn btn-primary" %>
+    <% end %>
+
+    </div>
+  </div>
+</div>
