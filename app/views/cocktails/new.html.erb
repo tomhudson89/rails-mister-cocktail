@@ -7,6 +7,7 @@
     <%= simple_form_for @cocktail do |f| %>
       <%= f.input :name, placeholder: "What's the name called" %>
       <%= f.input :info, placeholder: "Give a description of the cocktail" %>
+      <%= f.input :photo, as: :file %>
       <%= f.submit "Post cocktail", class: "btn btn-primary" %>
     <% end %>
 
