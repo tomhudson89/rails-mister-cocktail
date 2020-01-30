@@ -1,29 +1,40 @@
-<h1>
-  <%= @cocktail.name %>
-</h1>
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+  <%= link_to root_path, class: "navbar-brand" do %>
+    <%= image_tag "https://image.flaticon.com/icons/svg/920/920627.svg" %>
+  <% end %>
 
-<%= cl_image_tag @cocktail.photo.key, height: 300, width: 400, crop: :fill %>
-
-
-<p>
- <strong><%= @cocktail.info %></strong>
-</p>
-
-<p>
- <strong>Ingredient:</strong>
-</p>
-
-</p>
-<ul>
-  <% @cocktail.doses.each do |dose| %>
-  <li><%= dose.description %>
-    <%= dose.ingredient.name %>
-    <%= link_to "Delete ingredient", cocktail_dose_path(@cocktail, dose), method: :delete %>
-  <% end  %>
-
-</ul>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
 
 
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+    </ul>
+  </div>
+</div>
 
-<%= link_to "Back", root_path %>
-<%= link_to "Add a new recipe", new_cocktail_dose_path(@cocktail) %>
+<div class="card-trip">
+  <%= cl_image_tag @cocktail.photo.key, height: 300, width: 400, crop: :fill if @cocktail.photo.attached? %>
+  <div class="card-trip-infos">
+    <div>
+      <h2><%= @cocktail.name %></h2>
+      <p> <strong><%= @cocktail.info %></strong></p>
+    </div>
+    <ul class="card-trip-pricing">
+      <p> <strong>Ingredients:</strong> </p>
+      <% @cocktail.doses.each do |dose| %>
+      <li><%= dose.description %>
+        <%= dose.ingredient.name %>
+        <%= link_to "🗑", cocktail_dose_path(@cocktail, dose), method: :delete %>
+      <% end  %>
+    </ul>
+      </div>
+<%= link_to "Back", root_path, class: "btn btn-ghost" %>
+<%= link_to "Add a new recipe", new_cocktail_dose_path(@cocktail), class: "btn btn-flat" %>
+</div>
+
+
+
+
+

@@ -1,16 +1,28 @@
-<h1 class="text-center">Create a new Cocktail </h1>
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+  <%= link_to root_path, class: "navbar-brand" do %>
+    <%= image_tag "https://image.flaticon.com/icons/svg/920/920627.svg" %>
+  <% end %>
 
-<div class="container">
-  <div class="row">
-    <div class="col-xs-12 col-sm-offset-3">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
 
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+    </ul>
+  </div>
+</div>
+
+<div class="card-trip">
+  <h1 class="text-center">Create a new Cocktail </h1>
+  <div class="card-trip-infos">
     <%= simple_form_for @cocktail do |f| %>
       <%= f.input :name, placeholder: "What's the name called" %>
       <%= f.input :info, placeholder: "Give a description of the cocktail" %>
       <%= f.input :photo, as: :file %>
-      <%= f.submit "Post cocktail", class: "btn btn-primary" %>
+      <%= f.submit "Post cocktail", class: "btn btn-flat" %>
     <% end %>
-
-    </div>
   </div>
 </div>
+
